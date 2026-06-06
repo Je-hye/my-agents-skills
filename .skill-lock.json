@@ -1,0 +1,34 @@
+{
+  "version": 3,
+  "skills": {
+    "claude-api": {
+      "source": "anthropics/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/anthropics/skills.git",
+      "skillPath": "skills/claude-api/SKILL.md",
+      "skillFolderHash": "add3040533211c480d0eaae7f39fc6e05e2ea564",
+      "pluginName": "claude-api",
+      "installedAt": "2026-05-12T04:28:30.969Z",
+      "updatedAt": "2026-05-12T04:28:30.969Z"
+    },
+    "fastapi-expert": {
+      "source": "jeffallan/claude-skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/jeffallan/claude-skills.git",
+      "skillPath": "skills/fastapi-expert/SKILL.md",
+      "skillFolderHash": "28d173f0cc3d291ea7872b0a4f602f0542d0cd85",
+      "installedAt": "2026-05-12T04:29:09.917Z",
+      "updatedAt": "2026-05-12T04:29:09.917Z"
+    },
+    "oauth": {
+      "source": "vercel-labs/portless",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/vercel-labs/portless.git",
+      "skillPath": "skills/oauth/SKILL.md",
+      "skillFolderHash": "085616a1ff4cc9f4e9c5a7604db1b464856d978d",
+      "installedAt": "2026-05-12T04:29:18.535Z",
+      "updatedAt": "2026-05-12T04:29:18.535Z"
+    }
+  },
+  "dismissed": {}
+}
