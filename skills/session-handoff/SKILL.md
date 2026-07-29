@@ -29,6 +29,16 @@ git -C . diff --stat HEAD 2>/dev/null | head -20
 - 파일 저장: `~/.claude/handoffs/YYYY-MM-DD-HHMMSS.md`
 - 채팅에 문서 전체 출력 — 다른 AI로 이동 시 복붙, Claude 재사용 시 `@파일` 참조
 
+## 한계 및 고도화 방향
+
+**현재 한계**
+- bash facts(`git log/diff`)는 "무엇을 바꿨는지"만 캡처. 결정 근거·제약·다음 할 일은 에이전트가 남은 컨텍스트에서 채워야 함 — 토큰이 거의 없을 때 품질 저하 가능.
+- git을 쓰지 않는 프로젝트에서는 파일 변경 정보를 자동 수집 불가.
+
+**고도화 방향**
+- `Stop` 이벤트 훅: Claude 세션 종료 시 자동으로 경량 요약 저장 (`update-config` 스킬로 구현 가능).
+- AgentBriefing 연동: 최근 `/brief` 결과를 "why" 컨텍스트로 재활용 (`ls -t ~/Notes/AgentBriefings/*.md | head -1`).
+
 ## 핸드오프 문서 형식
 
 ```markdown
