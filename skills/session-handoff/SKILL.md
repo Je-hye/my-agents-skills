@@ -15,10 +15,11 @@ dependencies: ""
 **1. bash로 facts 수집**
 ```bash
 mkdir -p ~/.claude/handoffs
-date +%Y-%m-%d-%H%M%S
+TIMESTAMP=$(date +%Y-%m-%d-%H%M%S)
 git -C . log --oneline -5 2>/dev/null
 git -C . diff --stat HEAD 2>/dev/null | head -20
 ```
+`$TIMESTAMP`를 파일명에 사용: `~/.claude/handoffs/$TIMESTAMP.md`
 
 **2. 핸드오프 문서 작성**
 수집된 git 정보로 변경된 파일·완료 항목을 채운다.
@@ -26,7 +27,7 @@ git -C . diff --stat HEAD 2>/dev/null | head -20
 **시크릿·토큰·자격증명 포함 금지 (CLAUDE.md 섹션 14).**
 
 **3. 저장 및 출력**
-- 파일 저장: `~/.claude/handoffs/YYYY-MM-DD-HHMMSS.md`
+- 파일 저장: `~/.claude/handoffs/$TIMESTAMP.md`
 - 채팅에 문서 전체 출력 — 다른 AI로 이동 시 복붙, Claude 재사용 시 `@파일` 참조
 
 ## 한계 및 고도화 방향
