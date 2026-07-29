@@ -1,6 +1,9 @@
 ---
-name: session-handoff
-description: Use when a session is getting long, hitting context limits, or needs to continue in a new conversation. Produces a structured context block — optimized for a new agent to consume, not a human briefing — covering orientation, decisions with rationale, constraints discovered, and exact next steps.
+name: "session-handoff"
+description: "Use when a session is hitting context limits, switching to a different AI tool, or needs to continue in a new conversation. Triggered by token exhaustion, context compression, or mid-task AI tool switching."
+tier: "STANDARD"
+category: "Workflow / Session Management"
+dependencies: ""
 ---
 
 # Session Handoff
@@ -9,7 +12,7 @@ description: Use when a session is getting long, hitting context limits, or need
 
 ## 실행 절차
 
-**1. bash로 facts 수집 (에이전트 분석 최소화)**
+**1. bash로 facts 수집**
 ```bash
 mkdir -p ~/.claude/handoffs
 date +%Y-%m-%d-%H%M%S
@@ -17,15 +20,14 @@ git -C . log --oneline -5 2>/dev/null
 git -C . diff --stat HEAD 2>/dev/null | head -20
 ```
 
-**2. 핸드오프 문서 작성**  
-수집된 git 정보로 Files Changed·Accomplished를 채운다.  
-에이전트는 "왜(why)" — 결정 근거·제약·다음 할 일만 추가한다.  
+**2. 핸드오프 문서 작성**
+수집된 git 정보로 변경된 파일·완료 항목을 채운다.
+에이전트는 결정 근거·제약·다음 할 일만 추가한다.
 **시크릿·토큰·자격증명 포함 금지 (CLAUDE.md 섹션 14).**
 
-**3. 저장 및 출력**  
-저장: `~/.claude/handoffs/YYYY-MM-DD-HHMMSS.md`  
-채팅: 경로 + 요약 한 줄만. 문서 전체 출력 금지.  
-형식: 어떤 AI에도 텍스트 붙여넣기 가능 — `@파일` 참조 금지.
+**3. 저장 및 출력**
+- 파일 저장: `~/.claude/handoffs/YYYY-MM-DD-HHMMSS.md`
+- 채팅에 문서 전체 출력 — 다른 AI로 이동 시 복붙, Claude 재사용 시 `@파일` 참조
 
 ## 핸드오프 문서 형식
 
