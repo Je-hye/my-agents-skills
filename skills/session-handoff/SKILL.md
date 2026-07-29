@@ -12,18 +12,15 @@ dependencies: ""
 
 ## 실행 절차
 
-**1. bash로 facts 수집**
+**1. 파일명 생성**
 ```bash
 mkdir -p ~/.claude/handoffs
 TIMESTAMP=$(date +%Y-%m-%d-%H%M%S)
-git -C . diff --stat HEAD 2>/dev/null | head -20
 ```
-`$TIMESTAMP`를 파일명에 사용: `~/.claude/handoffs/$TIMESTAMP.md`
 
-**2. 핸드오프 문서 작성**
-수집된 git 정보로 변경된 파일·완료 항목을 채운다.
-에이전트는 결정 근거·제약·다음 할 일만 추가한다.
-**시크릿·토큰·자격증명 포함 금지 (CLAUDE.md 섹션 14).**
+**2. 세션에서 직접 추출해 핸드오프 문서 작성**
+현재 세션 컨텍스트를 읽고 아래 형식의 섹션을 채운다.
+**시크릿·토큰·자격증명·개인정보 포함 금지 (CLAUDE.md 섹션 14).**
 
 **3. 저장 및 출력**
 - 파일 저장: `~/.claude/handoffs/$TIMESTAMP.md`
@@ -32,8 +29,7 @@ git -C . diff --stat HEAD 2>/dev/null | head -20
 ## 한계 및 고도화 방향
 
 **현재 한계**
-- bash facts(`git log/diff`)는 "무엇을 바꿨는지"만 캡처. 결정 근거·제약·다음 할 일은 에이전트가 남은 컨텍스트에서 채워야 함 — 토큰이 거의 없을 때 품질 저하 가능.
-- git을 쓰지 않는 프로젝트에서는 파일 변경 정보를 자동 수집 불가.
+- 토큰이 거의 소진됐을 때 세션을 읽는 것 자체가 부담 — 컨텍스트 압축이 발생했다면 일부 정보는 이미 손실됐을 수 있음.
 
 **고도화 방향**
 - `Stop` 이벤트 훅: Claude 세션 종료 시 자동으로 경량 요약 저장 (`update-config` 스킬로 구현 가능).
