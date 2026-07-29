@@ -16,7 +16,6 @@ dependencies: ""
 ```bash
 mkdir -p ~/.claude/handoffs
 TIMESTAMP=$(date +%Y-%m-%d-%H%M%S)
-git -C . log --oneline -5 2>/dev/null
 git -C . diff --stat HEAD 2>/dev/null | head -20
 ```
 `$TIMESTAMP`를 파일명에 사용: `~/.claude/handoffs/$TIMESTAMP.md`
