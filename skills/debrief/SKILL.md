@@ -75,6 +75,19 @@ duplicate-checker 출력을 카테고리별 multiSelect 질문으로 제시한�
 3. **[TROUBLESHOOTING] / [COMMAND]**: CLAUDE.md §12·§13 절차 따라 append + Notes 레포 커밋/push
 4. **[SKILL-IMPROVE] / [SKILL-NEW]**: 내용 출력 후 "다음 세션에서 작업하시겠습니까?" 확인
 
+### 6단계: 완료 선언
+
+모든 항목 처리 후 다음 형식으로 완료를 명시한다.
+
+```
+/debrief 완료 — 적용 N건 / 스킵 N건 / 실패 N건
+```
+
+각 카테고리별 결과를 한 줄씩 출력한다:
+- ✅ 적용됨: 항목명
+- ⏭ 다음 세션: 항목명 (SKILL-IMPROVE/NEW)
+- ❌ 실패: 항목명 + 이유
+
 ## 주의 사항
 
 | 상황 | 처리 |
