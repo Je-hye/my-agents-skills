@@ -240,6 +240,25 @@ You are likely reviewing code you just wrote or just read. Your brain (weights) 
 - **On security-sensitive code** — auth, payments, data access, API endpoints
 - **When something "feels off"** — trust that instinct and run an adversarial review
 
+## Multi-Round Review (Diff-Aware Mode)
+
+같은 대상에 2회 이상 적용할 때는 **이전 라운드 지적 목록을 컨텍스트로 전달**한다.
+
+**2회차 이후 호출 방법:**
+```
+/adversarial-reviewer --file <path>
+이전 라운드 지적사항:
+- [W1] ...
+- [W2] ...
+```
+
+**2회차 집중 영역:**
+1. 이전 지적사항이 실제로 수정됐는가? (수정 확인)
+2. 수정으로 인해 새로운 문제가 생기지 않았는가? (회귀 탐지)
+3. 이전 라운드에서 놓친 새로운 문제가 있는가? (신규 탐지)
+
+이전 라운드와 동일한 지적을 반복하지 않는다. 이미 고쳐진 것은 CLEAN으로 표시한다.
+
 ## Cross-References
 
 - Related: `engineering-team/senior-security` — deep security analysis
