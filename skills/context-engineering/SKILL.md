@@ -16,6 +16,7 @@ Feed agents the right information at the right time. Context is the single bigge
 - Switching between different parts of a codebase
 - Setting up a new project for AI-assisted development
 - The agent is not following project conventions
+- MEMORY.md has grown large and needs cleanup (merging duplicates, removing stale or completed entries)
 
 ## The Context Hierarchy
 

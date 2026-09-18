@@ -29,3 +29,4 @@ description: "세션에서 사용한 스킬의 개선점과 새 스킬 필요성
 - 명확하게 드러난 불편함만 제안한다.
 - 이미 비슷한 스킬이 있으면 NEW 대신 IMPROVE로 분류한다.
 - 최대 3건.
+- 세션 요약에 '/debrief'가 포함되어 있으면, debrief 실행 자체와 그 Phase 1 에이전트(automation-scout, doc-updater, followup-suggester, learning-extractor, memory-curator, notes-scout, skill-feedback, duplicate-checker)를 분석 대상에서 제외한다.

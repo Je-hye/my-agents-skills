@@ -1,0 +1,4 @@
+interface:
+  display_name: "AI 콘텐츠 제작팀"
+  short_description: "5개 전문 서브 에이전트가 기획부터 업로드 준비까지 협업"
+  default_prompt: "$ai-content-production-team을 사용해 기획자, 편집자, 리뷰어, 마케터, 업로드 담당이 협업하는 쇼츠 제작 패키지를 완성해 주세요."
