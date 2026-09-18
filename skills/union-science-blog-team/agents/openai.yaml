@@ -1,0 +1,4 @@
+interface:
+  display_name: "유니온 과학학원 블로그 팀"
+  short_description: "기획부터 복사·붙여넣기용 게시 패키지까지 제작"
+  default_prompt: "Use $union-science-blog-team to create a Naver blog post for 유니온 과학학원."
